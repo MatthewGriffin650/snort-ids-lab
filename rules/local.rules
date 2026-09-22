@@ -1,0 +1,9 @@
+alert icmp any any -> any any (msg:"ICMP PING Detected"; sid:100001; rev:1;)
+
+alert tcp any any -> $HOME_NET 21 (msg:"top secret questions leaked."; content:"RETR myfile.txt"; nocase; sid:100002; rev:1;)
+
+alert tcp any any -> $HOME_NET 21 (msg:"FTP Login Attempt Detected."; content:"USER matthewgriffin"; nocase; sid:100003; rev:1;)
+
+alert tcp any any -> $HOME_NET 80 (msg:"HTTP Traffic Detected."; content:"Secret-Plans.txt"; sid:100004; rev:1;)
+
+alert tcp any any -> $HOME_NET 4444 (msg:"cat Command Attempted on Port 4444"; content:"cat"; sid:100005; rev:1;)
